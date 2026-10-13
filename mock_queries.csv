@@ -1,0 +1,27 @@
+QUERY_ID,CHECK,DOMAIN,USUBJID,VARIABLE,ISSUE,QUERY_TEXT
+Q001,ORPHAN_SUBJECT,AE,STUDY01-999-999,USUBJID,Subject not found in DM,Subject STUDY01-999-999 has an AE record but is not in the demographics. Please confirm subject ID.
+Q002,MISSING_VALUE,AE,STUDY01-101-022,AESEV,Severity missing,AE 'VOMITING' (start 2025-05-13) has no severity. Please provide MILD/MODERATE/SEVERE.
+Q003,MISSING_VALUE,AE,STUDY01-104-033,AESEV,Severity missing,AE 'FATIGUE' (start 2025-04-17) has no severity. Please provide MILD/MODERATE/SEVERE.
+Q004,MISSING_VALUE,AE,STUDY01-105-055,AESEV,Severity missing,AE 'DIZZINESS' (start 2025-04-02) has no severity. Please provide MILD/MODERATE/SEVERE.
+Q005,MISSING_VALUE,AE,STUDY01-101-059,AESEV,Severity missing,AE 'INSOMNIA' (start 2025-03-14) has no severity. Please provide MILD/MODERATE/SEVERE.
+Q006,MISSING_VALUE,LB,STUDY01-103-006,LBORRES,Lab result missing,ALT at WEEK 4 has no result. Please provide the result or confirm test not done.
+Q007,MISSING_VALUE,LB,STUDY01-105-007,LBORRES,Lab result missing,CREAT at WEEK 8 has no result. Please provide the result or confirm test not done.
+Q008,MISSING_VALUE,LB,STUDY01-105-012,LBORRES,Lab result missing,HGB at WEEK 4 has no result. Please provide the result or confirm test not done.
+Q009,MISSING_VALUE,LB,STUDY01-101-022,LBORRES,Lab result missing,CREAT at WEEK 4 has no result. Please provide the result or confirm test not done.
+Q010,MISSING_VALUE,LB,STUDY01-102-024,LBORRES,Lab result missing,AST at WEEK 4 has no result. Please provide the result or confirm test not done.
+Q011,DATE_BEFORE_CONSENT,AE,STUDY01-101-022,AESTDTC,AE start before informed consent,"AE 'RASH' starts 2025-03-28, before consent date 2025-04-02. Please verify the dates."
+Q012,DATE_BEFORE_CONSENT,AE,STUDY01-104-038,AESTDTC,AE start before informed consent,"AE 'HEADACHE' starts 2025-01-20, before consent date 2025-01-25. Please verify the dates."
+Q013,DATE_BEFORE_CONSENT,AE,STUDY01-103-050,AESTDTC,AE start before informed consent,"AE 'COUGH' starts 2025-02-27, before consent date 2025-03-04. Please verify the dates."
+Q014,END_BEFORE_START,AE,STUDY01-104-008,AEENDTC,AE end date before start date,AE 'VOMITING' ends 2025-04-04 but starts 2025-04-06. Please correct.
+Q015,END_BEFORE_START,AE,STUDY01-104-048,AEENDTC,AE end date before start date,AE 'NAUSEA' ends 2025-03-22 but starts 2025-03-24. Please correct.
+Q016,END_BEFORE_START,AE,STUDY01-103-056,AEENDTC,AE end date before start date,AE 'NAUSEA' ends 2025-03-18 but starts 2025-03-20. Please correct.
+Q017,END_BEFORE_START,AE,STUDY01-104-048,AEENDTC,AE end date before start date,AE 'NAUSEA' ends 2025-03-22 but starts 2025-03-24. Please correct.
+Q018,DATE_BEFORE_CONSENT,LB,STUDY01-101-027,LBDTC,Lab collected before informed consent,"HGB at SCREENING collected 2025-03-04, before consent 2025-03-08. Please verify."
+Q019,DATE_BEFORE_CONSENT,LB,STUDY01-101-044,LBDTC,Lab collected before informed consent,"AST at SCREENING collected 2025-03-08, before consent 2025-03-12. Please verify."
+Q020,DUPLICATE_RECORD,AE,STUDY01-103-040,AETERM,Exact duplicate AE record,AE 'NAUSEA' starting 2025-05-21 appears more than once. Please confirm and remove duplicate.
+Q021,DUPLICATE_RECORD,AE,STUDY01-104-048,AETERM,Exact duplicate AE record,AE 'NAUSEA' starting 2025-03-24 appears more than once. Please confirm and remove duplicate.
+Q022,RANGE_CHECK,DM,STUDY01-104-042,AGE,Age outside eligibility/plausible range,Age is 150; protocol requires 18+ and value must be plausible. Please verify.
+Q023,RANGE_CHECK,DM,STUDY01-102-046,AGE,Age outside eligibility/plausible range,Age is 17; protocol requires 18+ and value must be plausible. Please verify.
+Q024,IMPLAUSIBLE_VALUE,LB,STUDY01-103-028,LBORRES,HGB value physiologically implausible,HGB = 140.0 g/dL at SCREENING. Please verify (possible transcription/unit error).
+Q025,IMPLAUSIBLE_VALUE,LB,STUDY01-102-052,LBORRES,HGB value physiologically implausible,HGB = 1.4 g/dL at WEEK 8. Please verify (possible transcription/unit error).
+Q026,IMPLAUSIBLE_VALUE,LB,STUDY01-105-060,LBORRES,HGB value physiologically implausible,HGB = 0.5 g/dL at WEEK 4. Please verify (possible transcription/unit error).

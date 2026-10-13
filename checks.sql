@@ -1,0 +1,32 @@
+-- name: orphan_ae_subjects
+SELECT a.USUBJID, a.AETERM FROM ae a LEFT JOIN dm d ON a.USUBJID = d.USUBJID WHERE d.USUBJID IS NULL;
+
+-- name: ae_start_before_consent
+SELECT a.USUBJID, a.AETERM, a.AESTDTC, d.RFICDTC FROM ae a JOIN dm d ON a.USUBJID = d.USUBJID WHERE a.AESTDTC < d.RFICDTC;
+
+-- name: ae_end_before_start
+SELECT USUBJID, AETERM, AESTDTC, AEENDTC FROM ae WHERE AEENDTC < AESTDTC;
+
+-- name: ae_missing_severity
+SELECT USUBJID, AETERM, AESTDTC FROM ae WHERE AESEV IS NULL OR TRIM(AESEV) = '';
+
+-- name: duplicate_ae_records
+SELECT USUBJID, AETERM, AESTDTC, COUNT(*) AS n FROM ae GROUP BY USUBJID, AETERM, AESTDTC, AEENDTC HAVING COUNT(*) > 1;
+
+-- name: age_out_of_range
+SELECT USUBJID, AGE FROM dm WHERE AGE < 18 OR AGE > 100;
+
+-- name: lab_missing_results
+SELECT USUBJID, VISIT, LBTESTCD FROM lb WHERE LBORRES IS NULL;
+
+-- name: lab_before_consent
+SELECT l.USUBJID, l.VISIT, l.LBTESTCD, l.LBDTC, d.RFICDTC FROM lb l JOIN dm d ON l.USUBJID = d.USUBJID WHERE l.LBDTC < d.RFICDTC;
+
+-- name: hgb_implausible
+SELECT USUBJID, VISIT, LBORRES FROM lb WHERE LBTESTCD = 'HGB' AND (LBORRES < 3 OR LBORRES > 25);
+
+-- name: subjects_with_most_aes
+SELECT USUBJID, COUNT(*) AS ae_count FROM ae GROUP BY USUBJID ORDER BY ae_count DESC LIMIT 5;
+
+-- name: serious_aes_listing
+SELECT USUBJID, AETERM, AESTDTC, AESEV FROM ae WHERE AESER = 'Y' ORDER BY AESTDTC;

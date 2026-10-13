@@ -57,7 +57,7 @@ for code, (lo, hi) in PLAUSIBLE.items():
 
 q = pd.DataFrame(queries)
 q.insert(0, "QUERY_ID", [f"Q{i:03d}" for i in range(1, len(q) + 1)])
-q.to_csv("C:\\Users\\afras\\Downloads\\files\\output\\mock_queries.csv", index=False)
+q.to_csv("********\\files\\output\\mock_queries.csv", index=False)
 
 print(f"Total queries raised: {len(q)}\n")
 print(q.groupby(["DOMAIN", "CHECK"]).size().rename("COUNT").to_string())
